@@ -13,9 +13,18 @@ export type RootStackPramList = {
 
 const Stack = createStackNavigator<RootStackPramList>();
 
+const linking = {
+  prefixes: ['tapprep1029://'], // 앱의 URI 스키마
+  config: {
+    screens: {
+      GitLoginScreen: 'auth/callback', // 'myapp://auth/callback'을 GitLoginScreen에 매핑
+    },
+  },
+};
+
 const App = () => {
   return (
-    <NavigationContainer>
+    <NavigationContainer linking={linking}>
       <Stack.Navigator initialRouteName="GitLoginScreen">
         <Stack.Screen name="GitLoginScreen" component={GitLoginScreen} />
         <Stack.Screen name="Home" component={Home} />

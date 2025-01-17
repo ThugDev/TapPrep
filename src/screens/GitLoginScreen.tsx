@@ -1,7 +1,7 @@
 import {StackNavigationProp} from '@react-navigation/stack';
 import React from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
-import {RootStackPramList} from '../App';
+import {RootStackPramList} from '../../App';
 
 export type GitLoginScreenProps = {
   navigation: StackNavigationProp<RootStackPramList, 'GitLoginScreen'>;

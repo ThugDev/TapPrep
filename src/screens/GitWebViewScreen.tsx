@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import {ActivityIndicator, Linking, View} from 'react-native';
 import Config from 'react-native-config';
-import {WebView, WebViewNavigation} from 'react-native-webview';
+import {WebView} from 'react-native-webview';
 import {StackNavigationProp} from '@react-navigation/stack';
-import {RootStackPramList} from '../App';
-import axios from 'axios';
+import {RootStackPramList} from '../../App';
+import {postGitLogin} from '../apis/gitLogin';
 
 export type GitWebViewScreenProps = {
   navigation: StackNavigationProp<RootStackPramList, 'GitWebViewScreen'>;
@@ -23,11 +23,9 @@ const GitWebViewScreen = ({navigation}: GitWebViewScreenProps) => {
         const code = url.split('?code=')[1].split('&')[0].trim();
         if (code) {
           try {
-            const response = await axios.post(
-              'https://tap.ddori.site/api/auth/git/token',
-              {code},
-            );
-            return response;
+            const response = await postGitLogin(code);
+            console.log(response.data);
+            return response.data;
           } catch {
             throw new Error('로그인 토큰 에러');
           }
@@ -54,26 +52,10 @@ const GitWebViewScreen = ({navigation}: GitWebViewScreenProps) => {
     };
   }, [navigation]);
 
-  const handleWebViewNavigationStateChange = (event: WebViewNavigation) => {
-    const {url} = event;
-    console.log('WebView URL:', url);
-
-    // 리디렉션 URL 처리
-    if (url.startsWith('tapprep1029://auth/callback')) {
-      const code = url.split('?code=')[1];
-      if (code) {
-        navigation.navigate('GitLoginScreen', {authCode: code});
-      }
-      return false; // WebView에서 더 이상 URL을 로드하지 않도록 함
-    }
-    return true;
-  };
-
   return (
     <View className="flex-1">
       <WebView
         source={{uri: gitLoginURL}}
-        onShouldStartLoadWithRequest={handleWebViewNavigationStateChange}
         onLoadStart={() => setLoading(true)}
         onLoadEnd={() => setLoading(false)}
       />

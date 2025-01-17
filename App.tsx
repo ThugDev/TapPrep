@@ -1,9 +1,9 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-import GitLoginScreen from './src/GitLoginScreen';
-import Home from './src/Home';
-import GitWebViewScreen from './src/GitWebViewScreen';
+import GitLoginScreen from './src/screens/GitLoginScreen';
+import Home from './src/screens/Home';
+import GitWebViewScreen from './src/screens/GitWebViewScreen';
 
 export type RootStackPramList = {
   GitLoginScreen: {authCode: string} | undefined;

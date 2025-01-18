@@ -1,11 +1,6 @@
-import {StackNavigationProp} from '@react-navigation/stack';
 import React from 'react';
-import {Text, TouchableOpacity, View} from 'react-native';
-import {RootStackPramList} from '../../App';
-
-export type GitLoginScreenProps = {
-  navigation: StackNavigationProp<RootStackPramList, 'GitLoginScreen'>;
-};
+import {Image, TouchableOpacity, View} from 'react-native';
+import {GitLoginScreenProps} from './type';
 
 const GitLoginScreen = ({navigation}: GitLoginScreenProps) => {
   const handleLoginPress = () => {
@@ -13,12 +8,14 @@ const GitLoginScreen = ({navigation}: GitLoginScreenProps) => {
   };
 
   return (
-    <View className="flex-1 justify-center items-center ">
-      <Text className="text-2xl mb-5">GITHUB LOGIN</Text>
-      <TouchableOpacity
-        onPress={handleLoginPress}
-        className="bg-blue-500 rounded p-4 ">
-        <Text>LOGIN</Text>
+    <View className="w-screen h-screen justify-center items-center ">
+      <TouchableOpacity onPress={handleLoginPress} className="rounded p-2">
+        <View className="flex justify-center items-center">
+          <Image
+            source={require('../../assets/image/github-logo.png')}
+            className="w-12 h-12"
+          />
+        </View>
       </TouchableOpacity>
     </View>
   );

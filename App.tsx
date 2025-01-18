@@ -17,7 +17,7 @@ const linking = {
   prefixes: ['tapprep1029://'], // 앱의 URI 스키마
   config: {
     screens: {
-      GitLoginScreen: 'auth/callback', // 'myapp://auth/callback'을 GitLoginScreen에 매핑
+      GitLoginScreen: 'auth/callback', // 'tapprep1029://auth/callback'을 GitLoginScreen에 매핑
     },
   },
 };

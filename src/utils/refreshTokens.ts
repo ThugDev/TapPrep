@@ -40,7 +40,8 @@ export const refreshTokens = async ({navigation}: useGitHubRedirectProps) => {
     } else {
       throw new Error('리프레시 토큰이 존재하지 않습니다.');
     }
-  } catch {
+  } catch (error) {
+    console.error('토큰 갱신 실패', error);
     navigation.navigate('GitLoginScreen');
   }
 };

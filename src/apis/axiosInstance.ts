@@ -4,7 +4,8 @@ import Config from 'react-native-config';
 import {refreshTokens} from '../utils/refreshTokens';
 
 export const axiosInstance = axios.create({
-  baseURL: `${Config.BASE_URL}`,
+  baseURL: Config.BASE_URL,
+  timeout: 10000,
 });
 
 axiosInstance.interceptors.request.use(

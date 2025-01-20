@@ -36,7 +36,7 @@ export const refreshTokens = async ({navigation}: useGitHubRedirectProps) => {
         username: userName,
         refreshToken: refershToken,
       });
-      await AsyncStorage.setItem('authToken', response.data.accessToken);
+      await AsyncStorage.setItem('authToken', response.accessToken);
     } else {
       throw new Error('리프레시 토큰이 존재하지 않습니다.');
     }

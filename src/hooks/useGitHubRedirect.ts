@@ -4,7 +4,6 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import {Linking} from 'react-native';
 import {useGitHubRedirectProps} from './type';
 import {checkInitialURL} from '../utils/checkInitialURL';
-import {refreshTokens} from '../utils/refreshTokens';
 
 /**
  * @function useGitHubRedirect
@@ -61,9 +60,6 @@ export const useGitHubRedirect = ({navigation}: useGitHubRedirectProps) => {
 
     // 앱 실행 시 초기 URL 확인
     checkInitialURL({navigation});
-
-    // 앱 실행 시 토큰 갱신 시도
-    refreshTokens({navigation});
 
     return () => {
       linkingListener.remove();

@@ -15,3 +15,8 @@ export type LoginUserData = {
   profile_image: string;
   username: string;
 };
+
+export type PostRefreshTokenProps = {
+  username: string;
+  refreshToken: string;
+};

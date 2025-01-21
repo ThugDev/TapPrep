@@ -44,10 +44,13 @@ export const useGitHubRedirect = ({navigation}: useGitHubRedirectProps) => {
           try {
             const response = await postGitLogin(code);
             AsyncStorage.setItem('authToken', response.token.accessToken);
-            AsyncStorage.setItem('refreshToken', response.token.refershToken);
-            AsyncStorage.setItem('userName', response.token.userData.username);
+            AsyncStorage.setItem('refreshToken', response.token.refreshToken);
+            if (response.userData.username) {
+              AsyncStorage.setItem('userName', response.userData.username);
+            }
             navigation.navigate('Home');
-          } catch {
+          } catch (error) {
+            console.error('로그인 에러', error);
             navigation.navigate('GitLoginScreen');
             throw new Error('로그인 토큰 에러');
           }

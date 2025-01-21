@@ -29,12 +29,12 @@ import {useGitHubRedirectProps} from '../hooks/type';
 
 export const refreshTokens = async ({navigation}: useGitHubRedirectProps) => {
   try {
-    const refershToken = await AsyncStorage.getItem('refreshToken');
+    const refreshToken = await AsyncStorage.getItem('refreshToken');
     const userName = await AsyncStorage.getItem('userName');
-    if (userName && refershToken) {
+    if (userName && refreshToken) {
       const response = await postRefreshToken({
         username: userName,
-        refreshToken: refershToken,
+        refreshToken: refreshToken,
       });
       await AsyncStorage.setItem('authToken', response.accessToken);
     } else {

@@ -3,6 +3,7 @@ import {postGitLogin} from '../apis/gitLogin';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {Linking} from 'react-native';
 import {useGitHubRedirectProps} from './type';
+import {checkInitialURL} from '../utils/checkInitialURL';
 
 /**
  * @function useGitHubRedirect
@@ -43,6 +44,8 @@ export const useGitHubRedirect = ({navigation}: useGitHubRedirectProps) => {
           try {
             const response = await postGitLogin(code);
             AsyncStorage.setItem('authToken', response.token.accessToken);
+            AsyncStorage.setItem('refreshToken', response.token.refershToken);
+            AsyncStorage.setItem('userName', response.token.userData.username);
             navigation.navigate('Home');
           } catch {
             navigation.navigate('GitLoginScreen');
@@ -55,15 +58,8 @@ export const useGitHubRedirect = ({navigation}: useGitHubRedirectProps) => {
     // 이벤트 리스너 등록
     const linkingListener = Linking.addListener('url', handleRedirect);
 
-    // 앱이 처음 열릴 때 URL 확인
-    Linking.getInitialURL().then(url => {
-      if (url && url.startsWith('tapprep1029://auth/callback')) {
-        const code = url.split('?code=')[1];
-        if (code) {
-          navigation.navigate('Home');
-        }
-      }
-    });
+    // 앱 실행 시 초기 URL 확인
+    checkInitialURL({navigation});
 
     return () => {
       linkingListener.remove();

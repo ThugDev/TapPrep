@@ -15,3 +15,14 @@ export type LoginUserData = {
   profile_image: string;
   username: string;
 };
+
+export type PostRefreshTokenProps = {
+  username: string;
+  refreshToken: string;
+};
+
+export type RefreshTokenResponse = {
+  statusCode: number;
+  message: string;
+  accessToken: string;
+};

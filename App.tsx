@@ -7,6 +7,7 @@ import GitWebViewScreen from './src/screens/GitWebViewScreen';
 import {RootStackPramList} from './type';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import LoadingScreen from './src/components/common/LoadingScreen';
+import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
 
 const Stack = createStackNavigator<RootStackPramList>();
 
@@ -18,6 +19,8 @@ const linking = {
     },
   },
 };
+
+const queryClient = new QueryClient();
 
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
@@ -40,15 +43,17 @@ const App = () => {
   }
 
   return (
-    <NavigationContainer linking={linking}>
-      <Stack.Navigator
-        initialRouteName={isAuthenticated ? 'Home' : 'GitLoginScreen'}
-        screenOptions={{headerShown: false}}>
-        <Stack.Screen name="GitLoginScreen" component={GitLoginScreen} />
-        <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="GitWebViewScreen" component={GitWebViewScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <QueryClientProvider client={queryClient}>
+      <NavigationContainer linking={linking}>
+        <Stack.Navigator
+          initialRouteName={isAuthenticated ? 'Home' : 'GitLoginScreen'}
+          screenOptions={{headerShown: false}}>
+          <Stack.Screen name="GitLoginScreen" component={GitLoginScreen} />
+          <Stack.Screen name="Home" component={Home} />
+          <Stack.Screen name="GitWebViewScreen" component={GitWebViewScreen} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </QueryClientProvider>
   );
 };
 export default App;

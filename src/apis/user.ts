@@ -6,7 +6,6 @@ export const getUserProfile = async () => {
     const response = await axiosInstance.get<UserProfileResponse>(
       '/api/profile',
     );
-    console.log('use profile', response.data);
     return response.data;
   } catch (error) {
     console.error(error);

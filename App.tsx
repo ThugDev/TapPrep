@@ -2,23 +2,15 @@ import React, {useEffect, useState} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import GitLoginScreen from './src/screens/GitLoginScreen';
-import Home from './src/screens/Home';
 import GitWebViewScreen from './src/screens/GitWebViewScreen';
-import {RootStackPramList} from './type';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import LoadingScreen from './src/components/common/LoadingScreen';
 import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
+import {RootStackParamList} from './type';
+import TabNavigator from './src/components/TabNavigator';
+import {linking} from './src/config/linkingConfig';
 
-const Stack = createStackNavigator<RootStackPramList>();
-
-const linking = {
-  prefixes: ['tapprep1029://'], // 앱의 URI 스키마
-  config: {
-    screens: {
-      GitLoginScreen: 'auth/callback', // 'tapprep1029://auth/callback'을 GitLoginScreen에 매핑
-    },
-  },
-};
+const Stack = createStackNavigator<RootStackParamList>();
 
 const queryClient = new QueryClient();
 
@@ -46,10 +38,10 @@ const App = () => {
     <QueryClientProvider client={queryClient}>
       <NavigationContainer linking={linking}>
         <Stack.Navigator
-          initialRouteName={isAuthenticated ? 'Home' : 'GitLoginScreen'}
+          initialRouteName={isAuthenticated ? 'Main' : 'GitLoginScreen'}
           screenOptions={{headerShown: false}}>
           <Stack.Screen name="GitLoginScreen" component={GitLoginScreen} />
-          <Stack.Screen name="Home" component={Home} />
+          <Stack.Screen name="Main" component={TabNavigator} />
           <Stack.Screen name="GitWebViewScreen" component={GitWebViewScreen} />
         </Stack.Navigator>
       </NavigationContainer>

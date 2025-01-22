@@ -2,13 +2,14 @@ import React from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
 import UserDashBoard from '../components/UserDashboard';
 import {postLogout} from '../apis/gitLogin';
-import {RootStackPramList} from '../../type';
+
 import {useNavigation} from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {StackNavigationProp} from '@react-navigation/stack';
+import {RootStackParamList} from '../../type';
 
 const Home = () => {
-  const navigation = useNavigation<StackNavigationProp<RootStackPramList>>();
+  const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
 
   const handleLogOut = async () => {
     const response = await postLogout();

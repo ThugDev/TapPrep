@@ -48,7 +48,7 @@ export const useGitHubRedirect = ({navigation}: useGitHubRedirectProps) => {
             if (response.userData.username) {
               AsyncStorage.setItem('userName', response.userData.username);
             }
-            navigation.navigate('Home');
+            navigation.navigate('Main');
           } catch (error) {
             console.error('로그인 에러', error);
             navigation.navigate('GitLoginScreen');

@@ -17,7 +17,7 @@ axiosInstance.interceptors.request.use(
       }
       const token = await AsyncStorage.getItem('authToken');
       if (token) {
-        config.headers.Authorization = `Bearer ${token}`;
+        config.headers.Authorization = `bearer ${token}`;
       }
     } catch (error) {
       console.error('request interceptor 에러', error);
@@ -44,7 +44,7 @@ axiosInstance.interceptors.response.use(
 
         const newToken = await AsyncStorage.getItem('authToken');
         if (newToken) {
-          originalRequest.headers.Authorization = `Bearer ${newToken}`;
+          originalRequest.headers.Authorization = `bearer ${newToken}`;
           return axios(originalRequest); // 재시도
         }
       } catch (refreshError) {

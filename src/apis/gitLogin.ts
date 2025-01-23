@@ -40,3 +40,8 @@ export const postRefreshToken = async ({
     throw new Error('refresh 토큰 에러');
   }
 };
+
+export const postLogout = async () => {
+  const response = await axiosInstance.post('/api/auth/logout');
+  return response.data;
+};

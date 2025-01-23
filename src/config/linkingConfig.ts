@@ -1,4 +1,4 @@
-export const linking = {
+export const Linking = {
   prefixes: ['tapprep1029://'], // 앱의 URI 스키마
   config: {
     screens: {

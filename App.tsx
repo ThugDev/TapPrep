@@ -8,7 +8,7 @@ import LoadingScreen from './src/components/common/LoadingScreen';
 import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
 import {RootStackParamList} from './type';
 import TabNavigator from './src/components/TabNavigator';
-import {linking} from './src/config/linkingConfig';
+import {Linking} from './src/config/linkingConfig';
 
 const Stack = createStackNavigator<RootStackParamList>();
 
@@ -36,7 +36,7 @@ const App = () => {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <NavigationContainer linking={linking}>
+      <NavigationContainer linking={Linking}>
         <Stack.Navigator
           initialRouteName={isAuthenticated ? 'Main' : 'GitLoginScreen'}
           screenOptions={{headerShown: false}}>

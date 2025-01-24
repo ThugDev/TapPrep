@@ -1,9 +1,9 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {RootTabParamList} from '../../type';
-import Home from '../screens/Home';
-import DashBoardScreen from '../screens/DashBoardScreen';
-import CustomTabBar from './customTabBar';
+import {RootTabParamList} from '../../../type';
+import Home from '../../screens/Home';
+import DashBoardScreen from '../../screens/DashBoardScreen';
+import CustomTabBar from './CustomTabBar';
 
 const Tab = createBottomTabNavigator<RootTabParamList>();
 

@@ -30,12 +30,10 @@ export type RefreshTokenResponse = {
 export type UserProfileResponse = {
   statusCode: number;
   message: string;
-  userData: userData;
-};
-
-export type userData = {
-  username: string;
-  nickname: string;
-  profile_image: string;
-  level: string;
+  userData: {
+    username: string;
+    nickname: string;
+    profile_image: string;
+    level: string;
+  };
 };

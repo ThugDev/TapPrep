@@ -7,7 +7,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import LoadingScreen from './src/components/common/LoadingScreen';
 import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
 import {RootStackParamList} from './type';
-import TabNavigator from './src/components/TabNavigator';
+import TabNavigator from './src/components/navigation/TabNavigator';
 import {Linking} from './src/config/linkingConfig';
 
 const Stack = createStackNavigator<RootStackParamList>();

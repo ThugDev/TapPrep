@@ -1,12 +1,12 @@
 import React from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
-import UserDashBoard from '../components/UserDashboard';
 import {postLogout} from '../apis/gitLogin';
 
 import {useNavigation} from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {RootStackParamList} from '../../type';
+import UserDashBoard from '../components/home/UserDashboard';
 
 const Home = () => {
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();

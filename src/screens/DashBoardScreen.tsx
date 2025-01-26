@@ -6,6 +6,7 @@ import {getUserProfile} from '../apis/user';
 import LoadingScreen from '../components/common/LoadingScreen';
 import {ErrorScreen} from '../components/common/ErrorScreen';
 import DashBoardUserProfile from '../components/dashboard/DashBoardUserProfile';
+import DetailedStatistics from '../components/dashboard/DetailedStatistics';
 
 const DashBoardScreen = () => {
   const {
@@ -28,6 +29,7 @@ const DashBoardScreen = () => {
   return (
     <View className="w-full h-screen py-4" collapsable={false}>
       <DashBoardUserProfile userProfileData={userProfileData?.userData} />
+      <DetailedStatistics />
     </View>
   );
 };

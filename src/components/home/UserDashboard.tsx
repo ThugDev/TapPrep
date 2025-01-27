@@ -1,10 +1,11 @@
 import {useQuery} from '@tanstack/react-query';
 import React from 'react';
 import {Text, View} from 'react-native';
-import {getUserProfile} from '../apis/user';
-import LoadingScreen from './common/LoadingScreen';
-import {ErrorScreen} from './common/ErrorScreen';
-import {UserProfileResponse} from '../apis/type';
+
+import {UserProfileResponse} from '../../apis/type';
+import {getUserProfile} from '../../apis/user';
+import LoadingScreen from '../common/LoadingScreen';
+import {ErrorScreen} from '../common/ErrorScreen';
 import UserProfileComponent from './UserProfileComponent';
 
 const UserDashBoard = () => {

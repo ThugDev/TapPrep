@@ -12,8 +12,12 @@ const TabNavigator = () => {
     <Tab.Navigator
       screenOptions={{headerShown: false}}
       tabBar={props => <CustomTabBar {...props} />}>
-      <Tab.Screen name="Home" component={Home} />
-      <Tab.Screen name="DashBoardScreen" component={DashBoardScreen} />
+      <Tab.Screen name="Home" component={Home} options={{tabBarLabel: '홈'}} />
+      <Tab.Screen
+        name="DashBoardScreen"
+        component={DashBoardScreen}
+        options={{tabBarLabel: '대시보드'}}
+      />
     </Tab.Navigator>
   );
 };

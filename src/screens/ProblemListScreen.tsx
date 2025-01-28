@@ -1,39 +1,58 @@
-import { useQuery } from "@tanstack/react-query"
-import { Text, View } from "react-native"
-import { getProblemList } from "../apis/problem"
+import { Text, TouchableOpacity, View } from "react-native"
 import LoadingScreen from "../components/common/LoadingScreen"
 import { ErrorScreen } from "../components/common/ErrorScreen"
-import { RouteProp, useRoute } from "@react-navigation/native"
-import { RootStackParamList } from "../../type"
-
-export type ProblemListScreenRouteProps = RouteProp<RootStackParamList, 'ProblemListScreen'>;
+import { useRoute } from "@react-navigation/native"
+import ProblemItem from "../components/interview/ProblemItem"
+import { ProblemListScreenRouteProps } from "./type"
+import { DifficultyData } from "../constants/difficultyData"
+import { useProblemList } from "../hooks/useProblemList"
+import { useDifficulty } from "../hooks/useDifficulty"
+import ProblemListContext from "../components/interview/ProblemListContent"
 
 const ProblemListScreen = () => {
     const route = useRoute<ProblemListScreenRouteProps>()
-    const {selectedSector} = route.params
+    const { selectedSector } = route.params
+    const { selectedDifficulty, changeDifficulty } = useDifficulty()
+    const {data, fetchNextPage, hasNextPage, isFetchingNextPage, isLoading, isError} = useProblemList({selectedSector,selectedDifficulty})
 
-    console.log("selectedSector", selectedSector)
-
-    const {data: problemData, isError, isLoading} = useQuery({
-        queryKey: ['problemData',selectedSector],
-        queryFn: () => getProblemList({sector:selectedSector, difficulty:1, page: 1,limit: 10, type: "normal"})
-    })
-    
-    console.log("problem data", problemData)
-    
-
-    if(isLoading){
-        return <LoadingScreen/>
+    const handleEndReached = () => {
+        if(hasNextPage && !isFetchingNextPage){
+            fetchNextPage()
+        }
     }
 
-    if(isError){
-        return <ErrorScreen/>
-    }
+    const problems = data?.pages.flatMap((page) => page.problemList.map((item) => ({
+        problem_id: item.problem_id,
+        title: item.title
+    }))) || []
 
     return (
-        <View>
-            <Text></Text>
+        <View className="py-12 h-full">
+            <View className="flex justify-center items-center py-12">
+                <Text className="font-bold text-2xl">{selectedSector}</Text>
+            </View>
+            <View className="flex flex-row justify-center items-center pb-12">
+                {DifficultyData.map((difficulty) => (
+                    <TouchableOpacity
+                        key={difficulty.value}
+                        onPress={() => changeDifficulty(difficulty.value)}
+                        className={`px-4 mx-1 border rounded ${selectedDifficulty === difficulty.value ? "bg-blue-500" : "bg-gray-400"}`}
+                    >
+                        <Text className="px-4 py-1 font-bold">{difficulty.label}</Text>
+                    </TouchableOpacity>
+                ))}
+            </View>
+                <ProblemListContext 
+                    isError={isError}
+                    isLoading={isLoading}
+                    problems={problems}
+                    handleEndReached={handleEndReached}
+                    isFetchingNextPage={isFetchingNextPage}
+                    fetchNextPage={fetchNextPage}
+                    hasNextPage={hasNextPage}
+                />
         </View>
     )
 }
+
 export default ProblemListScreen

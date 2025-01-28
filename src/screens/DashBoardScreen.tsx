@@ -23,7 +23,7 @@ const DashBoardScreen = () => {
   }
 
   if (isError) {
-    return <ErrorScreen />;
+    return <ErrorScreen errorMessage='유저 정보를 받아올 수 없습니다.' />;
   }
 
   return (

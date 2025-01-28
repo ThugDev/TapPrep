@@ -26,9 +26,6 @@ const InterviewScreen = () => {
 
     return (
         <View className="py-4">
-            <Text>
-                Interview Screen
-            </Text>
            <SectorView setSelectedSector={setSelectedSector} handleOnPress={handleSector} />
         </View>
     )

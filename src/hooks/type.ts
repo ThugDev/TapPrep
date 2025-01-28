@@ -1,6 +1,12 @@
 import {StackNavigationProp} from '@react-navigation/stack';
-import {RootStackPramList} from '../../type';
+import { RootStackParamList } from '../../type';
+
 
 export type useGitHubRedirectProps = {
-  navigation: StackNavigationProp<RootStackPramList>;
+  navigation: StackNavigationProp<RootStackParamList>;
 };
+
+export type UseProblemListProps = {
+  selectedSector: string;
+  selectedDifficulty: number;
+}

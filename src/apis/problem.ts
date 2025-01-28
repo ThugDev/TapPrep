@@ -3,7 +3,7 @@ import axiosInstance from "./axiosInstance"
 export type GetProblemListProps = {
     sector: string;
     difficulty: number;
-    page: number;
+    page: number | boolean;
     limit: number;
     type: string;
 }
@@ -13,6 +13,7 @@ export type GetProblemListResponse = {
         problem_id: number
         title: string
     }[]
+    nextPage: number | boolean
 }
 
 export const getProblemList = async ({sector, difficulty, page, limit, type}: GetProblemListProps) => {

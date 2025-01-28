@@ -12,7 +12,7 @@ const SectorView = ({setSelectedSector, handleOnPress}: SectorViewProps) => {
     }
 
     return (
-        <View className="w-full h-screen flex-wrap flex-row justify-center py-12 gap-4">
+        <View className="w-full h-screen flex-wrap flex-row justify-center py-16 gap-4">
         {SectorData.map((sector) => (
             <TouchableOpacity key={sector.name} onPress={() => handlePress(sector.name)} className="w-[150px] h-[150px] justify-center items-center rounded" style={{ backgroundColor: sector.color }}>
                 <Text style={{color: sector.color === "#000000" ? 'white' : 'black'}} className="font-bold text-xl" >{sector.name}</Text>

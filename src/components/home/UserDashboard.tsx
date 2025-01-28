@@ -23,7 +23,7 @@ const UserDashBoard = () => {
   }
 
   if (isError) {
-    return <ErrorScreen />;
+    return <ErrorScreen errorMessage='유저 데이터를 불러오는데 실패했습니다.' />;
   }
 
   return (

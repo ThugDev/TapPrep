@@ -56,3 +56,24 @@ export type GetProblemListResponse = {
   }[];
   nextPage: number | boolean;
 };
+
+export type GetProblemDetail = {
+  problemId: number
+}
+
+export type GetProblemDetailResponse = {
+  statusCode: number
+  message: string
+  problemData: {
+    problem_id: number
+    title: string
+    description: string
+    hint: string
+    options?: ProblemOption[]
+    type: number
+  }
+}
+
+export type ProblemOption = {
+  [key: string]: string
+}

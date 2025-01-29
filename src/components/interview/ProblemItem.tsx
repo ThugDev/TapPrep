@@ -1,19 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FlatList, Text, TouchableOpacity, View } from 'react-native';
 import { ProblemItemProps } from './type';
 import LoadingScreen from '../common/LoadingScreen';
+import { useNavigation } from '@react-navigation/native';
+import { InterviewStackParamList } from '../navigation/type';
+import { StackNavigationProp } from '@react-navigation/stack';
 
 const ProblemItem = ({
   problem,
   handleEndReached,
   isFetchingNextPage,
 }: ProblemItemProps) => {
+    const navigation = useNavigation<StackNavigationProp<InterviewStackParamList, "ProblemDetailScreen">>()
+
+    const handleProblemDetail = (problemId: number) => {
+        navigation.navigate("ProblemDetailScreen", {problemId})
+    }
+
   return (
     <View className="w-full flex-1 pb-40">
       <FlatList
         data={problem}
         renderItem={({ item }) => (
-          <TouchableOpacity className="flex justify-center items-center py-4 my-2 border">
+          <TouchableOpacity onPress={() => handleProblemDetail(item.problem_id)} className="flex justify-center items-center py-4 my-2 border">
             <Text className="flex justify-center items-center">
               {item.title}
             </Text>

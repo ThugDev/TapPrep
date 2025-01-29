@@ -1,10 +1,10 @@
 import { Text, TouchableOpacity, View } from 'react-native';
 import { useRoute } from '@react-navigation/native';
+import { DifficultyData } from '../../constants/difficultyData';
+import { useProblemList } from '../../hooks/useProblemList';
+import { useDifficulty } from '../../hooks/useDifficulty';
+import ProblemListContext from '../../components/interview/ProblemListContent';
 import { ProblemListScreenRouteProps } from './type';
-import { DifficultyData } from '../constants/difficultyData';
-import { useProblemList } from '../hooks/useProblemList';
-import { useDifficulty } from '../hooks/useDifficulty';
-import ProblemListContext from '../components/interview/ProblemListContent';
 
 const ProblemListScreen = () => {
   const route = useRoute<ProblemListScreenRouteProps>();

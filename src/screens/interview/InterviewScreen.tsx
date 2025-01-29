@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { View } from 'react-native';
-import SectorView from '../components/interview/SectorView';
+import SectorView from '../../components/interview/SectorView';
 import { useNavigation } from '@react-navigation/native';
-import { RootStackParamList } from '../../type';
+import { RootStackParamList } from '../../../type';
 import { StackNavigationProp } from '@react-navigation/stack';
+import { InterviewStackParamList } from '../../components/navigation/type';
 
 const InterviewScreen = () => {
   const [selectedSector, setSelectedSector] = useState<string>('');
   const navigation =
     useNavigation<
-      StackNavigationProp<RootStackParamList, 'ProblemListScreen'>
+      StackNavigationProp<InterviewStackParamList, 'ProblemListScreen'>
     >();
 
   useEffect(() => {

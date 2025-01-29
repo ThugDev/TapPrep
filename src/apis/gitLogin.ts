@@ -10,7 +10,7 @@ export const postGitLogin = async (code: string) => {
   try {
     const response = await axiosInstance.post<GitLoginResponse>(
       '/api/auth/git/token',
-      {code},
+      { code },
     );
     return response.data;
   } catch {

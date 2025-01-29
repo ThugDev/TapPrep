@@ -1,5 +1,5 @@
-import {Linking} from 'react-native';
-import {useGitHubRedirectProps} from '../hooks/type';
+import { Linking } from 'react-native';
+import { useGitHubRedirectProps } from '../hooks/type';
 
 /**
  * @function checkInitialURL
@@ -26,7 +26,9 @@ import {useGitHubRedirectProps} from '../hooks/type';
  * @returns {Promise<void>} 반환값 없음
  */
 
-export const checkInitialURL = async ({navigation}: useGitHubRedirectProps) => {
+export const checkInitialURL = async ({
+  navigation,
+}: useGitHubRedirectProps) => {
   const url = await Linking.getInitialURL();
   if (url && url.startsWith('tapprep1029://auth/callback')) {
     const code = url.split('?code=')[1];

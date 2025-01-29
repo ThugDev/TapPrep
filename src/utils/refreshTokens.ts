@@ -1,6 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {postRefreshToken} from '../apis/gitLogin';
-import {useGitHubRedirectProps} from '../hooks/type';
+import { postRefreshToken } from '../apis/gitLogin';
+import { useGitHubRedirectProps } from '../hooks/type';
 
 /**
  * @function refreshTokens
@@ -27,7 +27,7 @@ import {useGitHubRedirectProps} from '../hooks/type';
  * @returns {Promise<void>} 반환값 없음
  */
 
-export const refreshTokens = async ({navigation}: useGitHubRedirectProps) => {
+export const refreshTokens = async ({ navigation }: useGitHubRedirectProps) => {
   try {
     const refreshToken = await AsyncStorage.getItem('refreshToken');
     const userName = await AsyncStorage.getItem('userName');

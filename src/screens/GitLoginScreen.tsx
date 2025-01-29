@@ -1,8 +1,8 @@
 import React from 'react';
-import {Image, TouchableOpacity, View} from 'react-native';
-import {GitLoginScreenProps} from './type';
+import { Image, TouchableOpacity, View } from 'react-native';
+import { GitLoginScreenProps } from './type';
 
-const GitLoginScreen = ({navigation}: GitLoginScreenProps) => {
+const GitLoginScreen = ({ navigation }: GitLoginScreenProps) => {
   const handleLoginPress = () => {
     navigation.navigate('GitWebViewScreen');
   };

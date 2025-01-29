@@ -1,11 +1,10 @@
 import axiosInstance from './axiosInstance';
-import {UserProfileResponse} from './type';
+import { UserProfileResponse } from './type';
 
 export const getUserProfile = async () => {
   try {
-    const response = await axiosInstance.get<UserProfileResponse>(
-      '/api/profile',
-    );
+    const response =
+      await axiosInstance.get<UserProfileResponse>('/api/profile');
     return response.data;
   } catch (error) {
     console.error(error);

@@ -40,20 +40,19 @@ export type UserProfileResponse = {
   };
 };
 
-
-// problem.ts 의 타입 
+// problem.ts 의 타입
 export type GetProblemListProps = {
-    sector: string;
-    difficulty: number;
-    page: number | boolean;
-    limit: number;
-}
+  sector: string;
+  difficulty: number;
+  page: number | boolean;
+  limit: number;
+};
 
 export type GetProblemListResponse = {
-    problemList: {
-        problem_id: number
-        title: string
-        type:string
-    }[]
-    nextPage: number | boolean
-}
+  problemList: {
+    problem_id: number;
+    title: string;
+    type: string;
+  }[];
+  nextPage: number | boolean;
+};

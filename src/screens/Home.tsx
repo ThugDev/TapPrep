@@ -1,11 +1,11 @@
 import React from 'react';
-import {Text, TouchableOpacity, View} from 'react-native';
-import {postLogout} from '../apis/gitLogin';
+import { Text, TouchableOpacity, View } from 'react-native';
+import { postLogout } from '../apis/gitLogin';
 
-import {useNavigation} from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {StackNavigationProp} from '@react-navigation/stack';
-import {RootStackParamList} from '../../type';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackParamList } from '../../type';
 import UserDashBoard from '../components/home/UserDashboard';
 
 const Home = () => {

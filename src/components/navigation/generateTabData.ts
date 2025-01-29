@@ -1,5 +1,5 @@
-import {BottomTabBarProps} from '@react-navigation/bottom-tabs';
-import {TabData} from './type';
+import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
+import { TabData } from './type';
 
 /**
  * @function generateTabData
@@ -31,7 +31,7 @@ export const generateTabData = (
   descriptors: BottomTabBarProps['descriptors'],
   navigation: BottomTabBarProps['navigation'],
 ): TabData => {
-  const {options} = descriptors[route.key];
+  const { options } = descriptors[route.key];
   const isFocused = state.index === index;
 
   const label =
@@ -44,7 +44,7 @@ export const generateTabData = (
             children: route.name,
           }),
         )
-      : (options.tabBarLabel as string) ?? options.title ?? route.name;
+      : ((options.tabBarLabel as string) ?? options.title ?? route.name);
 
   const onPress = () => {
     const event = navigation.emit({

@@ -1,11 +1,11 @@
-import {useQuery} from '@tanstack/react-query';
+import { useQuery } from '@tanstack/react-query';
 import React from 'react';
-import {Text, View} from 'react-native';
+import { Text, View } from 'react-native';
 
-import {UserProfileResponse} from '../../apis/type';
-import {getUserProfile} from '../../apis/user';
+import { UserProfileResponse } from '../../apis/type';
+import { getUserProfile } from '../../apis/user';
 import LoadingScreen from '../common/LoadingScreen';
-import {ErrorScreen} from '../common/ErrorScreen';
+import { ErrorScreen } from '../common/ErrorScreen';
 import UserProfileComponent from './UserProfileComponent';
 
 const UserDashBoard = () => {
@@ -23,7 +23,9 @@ const UserDashBoard = () => {
   }
 
   if (isError) {
-    return <ErrorScreen errorMessage='유저 데이터를 불러오는데 실패했습니다.' />;
+    return (
+      <ErrorScreen errorMessage="유저 데이터를 불러오는데 실패했습니다." />
+    );
   }
 
   return (

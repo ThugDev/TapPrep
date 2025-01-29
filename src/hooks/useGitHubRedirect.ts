@@ -1,8 +1,8 @@
-import {useEffect} from 'react';
-import {postGitLogin} from '../apis/gitLogin';
+import { useEffect } from 'react';
+import { postGitLogin } from '../apis/gitLogin';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {Linking} from 'react-native';
-import {checkInitialURL} from '../utils/checkInitialURL';
+import { Linking } from 'react-native';
+import { checkInitialURL } from '../utils/checkInitialURL';
 import { UseGitHubRedirectProps } from './type';
 
 /**
@@ -33,10 +33,10 @@ import { UseGitHubRedirectProps } from './type';
  * @throws {Error} 로그인 토큰을 처리하는 중 오류가 발생할 경우 예외를 발생시킴
  */
 
-export const useGitHubRedirect = ({navigation}: UseGitHubRedirectProps) => {
+export const useGitHubRedirect = ({ navigation }: UseGitHubRedirectProps) => {
   useEffect(() => {
-    const handleRedirect = async (event: {url: string}) => {
-      const {url} = event;
+    const handleRedirect = async (event: { url: string }) => {
+      const { url } = event;
       // 앱이 포그라운드에 있을 때 딥 링크 처리
       if (url.startsWith('tapprep1029://auth/callback')) {
         const code = url.split('?code=')[1].split('&')[0].trim();
@@ -62,7 +62,7 @@ export const useGitHubRedirect = ({navigation}: UseGitHubRedirectProps) => {
     const linkingListener = Linking.addListener('url', handleRedirect);
 
     // 앱 실행 시 초기 URL 확인
-    checkInitialURL({navigation});
+    checkInitialURL({ navigation });
 
     return () => {
       linkingListener.remove();

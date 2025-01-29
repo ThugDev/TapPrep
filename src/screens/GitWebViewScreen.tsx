@@ -1,21 +1,21 @@
-import React, {useState} from 'react';
-import {ActivityIndicator, View} from 'react-native';
+import React, { useState } from 'react';
+import { ActivityIndicator, View } from 'react-native';
 import Config from 'react-native-config';
-import {WebView} from 'react-native-webview';
-import {useGitHubRedirect} from '../hooks/useGitHubRedirect';
-import {GitWebViewScreenProps} from './type';
+import { WebView } from 'react-native-webview';
+import { useGitHubRedirect } from '../hooks/useGitHubRedirect';
+import { GitWebViewScreenProps } from './type';
 
-const GitWebViewScreen = ({navigation}: GitWebViewScreenProps) => {
+const GitWebViewScreen = ({ navigation }: GitWebViewScreenProps) => {
   const [loading, setLoading] = useState(true);
 
   const gitLoginURL = `https://github.com/login/oauth/authorize?client_id=${Config.GITHUB_CLIENT_ID}&state=random_string`;
 
-  useGitHubRedirect({navigation});
+  useGitHubRedirect({ navigation });
 
   return (
     <View className="flex-1">
       <WebView
-        source={{uri: gitLoginURL}}
+        source={{ uri: gitLoginURL }}
         onLoadStart={() => setLoading(true)}
         onLoadEnd={() => setLoading(false)}
       />

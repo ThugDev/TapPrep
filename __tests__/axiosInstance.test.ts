@@ -1,7 +1,7 @@
 import axiosMockAdapter from 'axios-mock-adapter';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axiosInstance from '../src/apis/axiosInstance';
-import {refreshTokens} from '../src/utils/refreshTokens';
+import { refreshTokens } from '../src/utils/refreshTokens';
 
 jest.mock('@react-native-async-storage/async-storage', () => ({
   getItem: jest.fn(),
@@ -38,7 +38,7 @@ describe('Axios instance', () => {
     mock.onGet('/protected-endpoint').replyOnce(401); // 첫 번째 요청에 401 응답
 
     // Mock new token request (재시도 요청)
-    mock.onGet('/protected-endpoint').replyOnce(200, {data: 'success'}); // 두 번째 요청에 성공 응답
+    mock.onGet('/protected-endpoint').replyOnce(200, { data: 'success' }); // 두 번째 요청에 성공 응답
 
     // Test the request
     const response = await axiosInstance.get('/protected-endpoint');

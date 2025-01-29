@@ -1,4 +1,4 @@
-import {StackNavigationProp} from '@react-navigation/stack';
+import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../../type';
 import { RouteProp } from '@react-navigation/native';
 
@@ -12,14 +12,17 @@ export type GitWebViewScreenProps = {
   navigation: StackNavigationProp<RootStackParamList, 'Main'>;
 };
 
-export type ProblemListScreenRouteProps = RouteProp<RootStackParamList, 'ProblemListScreen'>;
+export type ProblemListScreenRouteProps = RouteProp<
+  RootStackParamList,
+  'ProblemListScreen'
+>;
 
 // difficulty 변경 핸들러 타입
 export type handleDifficultyProps = {
-  difficultyValue: number
-}
+  difficultyValue: number;
+};
 
 export type ProblemListScreenProps = {
   problemList: { problem_id: number; title: string }[];
-  nextPage: number | boolean
-}
+  nextPage: number | boolean;
+};

@@ -1,5 +1,9 @@
-import {useEffect} from 'react';
-import {useSharedValue, withRepeat, withTiming} from 'react-native-reanimated';
+import { useEffect } from 'react';
+import {
+  useSharedValue,
+  withRepeat,
+  withTiming,
+} from 'react-native-reanimated';
 
 /**
  * @function useFadeAnimated
@@ -32,7 +36,7 @@ export const useFadeAnimated = (
   const opacity = useSharedValue(initialOpacity);
 
   useEffect(() => {
-    opacity.value = withRepeat(withTiming(0.3, {duration}), -1, true);
+    opacity.value = withRepeat(withTiming(0.3, { duration }), -1, true);
   }, [opacity, duration]);
 
   return opacity;

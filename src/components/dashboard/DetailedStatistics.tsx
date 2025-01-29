@@ -1,11 +1,9 @@
 import React from 'react';
-import {Dimensions, Text, View} from 'react-native';
-import {PieChart} from 'react-native-chart-kit';
+import { Dimensions, Text, View } from 'react-native';
+import { PieChart } from 'react-native-chart-kit';
 import { SectorData } from '../../constants/sectorData';
 
 const DetailedStatistics = () => {
-  
-
   const screenWidth = Dimensions.get('window').width;
 
   return (

@@ -1,11 +1,13 @@
 import React from 'react';
-import {Image, Text, View} from 'react-native';
-import Animated, {useAnimatedStyle} from 'react-native-reanimated';
-import {DashBaordUserProfileProps} from './type';
-import {ErrorScreen} from '../common/ErrorScreen';
-import {useFadeAnimated} from '../../hooks/useFadeAnimated';
+import { Image, Text, View } from 'react-native';
+import Animated, { useAnimatedStyle } from 'react-native-reanimated';
+import { DashBaordUserProfileProps } from './type';
+import { ErrorScreen } from '../common/ErrorScreen';
+import { useFadeAnimated } from '../../hooks/useFadeAnimated';
 
-const DashBoardUserProfile = ({userProfileData}: DashBaordUserProfileProps) => {
+const DashBoardUserProfile = ({
+  userProfileData,
+}: DashBaordUserProfileProps) => {
   const opacity = useFadeAnimated(1, 1000);
 
   const animatedStyle = useAnimatedStyle(() => ({
@@ -13,14 +15,16 @@ const DashBoardUserProfile = ({userProfileData}: DashBaordUserProfileProps) => {
   }));
 
   if (!userProfileData) {
-    return <ErrorScreen errorMessage='유저 데이터를 불러오는데 실패했습니다.' />;
+    return (
+      <ErrorScreen errorMessage="유저 데이터를 불러오는데 실패했습니다." />
+    );
   }
 
   return (
     <View className="w-full h-[200px] flex flex-row justify-center items-center">
       <View className="w-1/2 h-full flex justify-center items-center">
         <Image
-          source={{uri: userProfileData.profile_image}}
+          source={{ uri: userProfileData.profile_image }}
           className="w-32 h-32 rounded-[50%] border-2"
         />
       </View>

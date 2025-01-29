@@ -1,7 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
 import Config from 'react-native-config';
-import {refreshTokens} from '../utils/refreshTokens';
+import { refreshTokens } from '../utils/refreshTokens';
 
 export const axiosInstance = axios.create({
   baseURL: Config.BASE_URL,
@@ -9,10 +9,10 @@ export const axiosInstance = axios.create({
 });
 
 axiosInstance.interceptors.request.use(
-  async config => {
+  async (config) => {
     try {
       const noAuthPaths = ['api/auth/git/token'];
-      if (noAuthPaths.some(path => config.url?.includes(path))) {
+      if (noAuthPaths.some((path) => config.url?.includes(path))) {
         return config;
       }
       const token = await AsyncStorage.getItem('authToken');
@@ -24,14 +24,14 @@ axiosInstance.interceptors.request.use(
     }
     return config;
   },
-  error => {
+  (error) => {
     return Promise.reject(error);
   },
 );
 
 axiosInstance.interceptors.response.use(
-  response => response,
-  async error => {
+  (response) => response,
+  async (error) => {
     const originalRequest = error.config;
 
     if (error.response?.status === 401 && !originalRequest._retry) {
@@ -40,7 +40,7 @@ axiosInstance.interceptors.response.use(
         // navigation 객체를 전달받아서 refreshTokens 함수 호출
         const navigation = originalRequest.navigation; // 요청에서 navigation 객체 추출
 
-        await refreshTokens({navigation}); // navigation 객체 넘겨서 refreshTokens 호출
+        await refreshTokens({ navigation }); // navigation 객체 넘겨서 refreshTokens 호출
 
         const newToken = await AsyncStorage.getItem('authToken');
         if (newToken) {

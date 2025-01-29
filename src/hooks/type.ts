@@ -2,7 +2,7 @@ import {StackNavigationProp} from '@react-navigation/stack';
 import { RootStackParamList } from '../../type';
 
 
-export type useGitHubRedirectProps = {
+export type UseGitHubRedirectProps = {
   navigation: StackNavigationProp<RootStackParamList>;
 };
 

@@ -2,8 +2,8 @@ import React from 'react';
 import {Image, Text, TouchableOpacity} from 'react-native';
 import {UserProfileProps} from './type';
 import {useNavigation} from '@react-navigation/native';
-import {RootTabParamList} from '../../type';
 import {BottomTabNavigationProp} from '@react-navigation/bottom-tabs';
+import { RootTabParamList } from '../../../type';
 
 const UserProfileComponent = ({
   profileImage,

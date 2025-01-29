@@ -2,8 +2,8 @@ import {useEffect} from 'react';
 import {postGitLogin} from '../apis/gitLogin';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {Linking} from 'react-native';
-import {useGitHubRedirectProps} from './type';
 import {checkInitialURL} from '../utils/checkInitialURL';
+import { UseGitHubRedirectProps } from './type';
 
 /**
  * @function useGitHubRedirect
@@ -33,7 +33,7 @@ import {checkInitialURL} from '../utils/checkInitialURL';
  * @throws {Error} 로그인 토큰을 처리하는 중 오류가 발생할 경우 예외를 발생시킴
  */
 
-export const useGitHubRedirect = ({navigation}: useGitHubRedirectProps) => {
+export const useGitHubRedirect = ({navigation}: UseGitHubRedirectProps) => {
   useEffect(() => {
     const handleRedirect = async (event: {url: string}) => {
       const {url} = event;

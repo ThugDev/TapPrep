@@ -1,6 +1,7 @@
-import { getProblemList, GetProblemListResponse } from "../apis/problem";
+import { getProblemList } from "../apis/problem";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { UseProblemListProps } from "./type";
+import { GetProblemListResponse } from "../apis/type";
 
 /**
  * @function useProblemList
@@ -40,7 +41,6 @@ export const useProblemList = ({selectedSector, selectedDifficulty}: UseProblemL
                 difficulty: selectedDifficulty,
                 page,
                 limit: 10,
-                type: "normal"
             })
         },
         getNextPageParam: (lastPage) => {

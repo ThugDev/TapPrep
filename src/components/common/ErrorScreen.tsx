@@ -1,9 +1,8 @@
 import React from 'react';
 import {Text, View} from 'react-native';
+import { ErrorScreenProps } from './type';
 
-export type ErrorScreenProps = {
-  errorMessage: string
-}
+
 
 export const ErrorScreen = ({errorMessage}: ErrorScreenProps) => {
   return (

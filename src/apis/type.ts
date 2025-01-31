@@ -82,3 +82,16 @@ export type PostProblemAnswerProps = {
     problemId?: number;
     option: number | string | boolean | null;
 };
+
+export type PostProblemAnswerResponse = {
+    message: string;
+    problemResult: {
+        answer: string;
+        explanation: string;
+        isCorrect: boolean;
+        problem_id: number;
+        reference: string;
+        title: string;
+    };
+    statusCode: number;
+};

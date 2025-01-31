@@ -1,3 +1,5 @@
+import { PostProblemAnswerResponse } from '../../apis/type';
+
 export type ErrorScreenProps = {
     errorMessage: string;
 };
@@ -44,4 +46,8 @@ export type HintViewProps = {
 export type ProblemAnswerTextProps = {
     answerText: string;
     setAnswerText: (answerText: string) => void;
+};
+
+export type AnswerExplanationProps = {
+    responseData: PostProblemAnswerResponse | null;
 };

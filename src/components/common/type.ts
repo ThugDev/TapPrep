@@ -39,3 +39,9 @@ export type HintViewProps = {
     setClickHint: (clickHint: boolean) => void;
     hint?: string;
 };
+
+// problem answer text
+export type ProblemAnswerTextProps = {
+    answerText: string;
+    setAnswerText: (answerText: string) => void;
+};

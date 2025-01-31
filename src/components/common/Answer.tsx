@@ -26,9 +26,15 @@ const Answer = ({ data }: InterviewAnswerProps) => {
     };
 
     const handleAnswer = async () => {
+        const option = formData.answerText.trim()
+            ? formData.answerText.toLocaleLowerCase()
+            : formData.answerOX !== null
+              ? formData.answerOX
+              : Number(formData.selectedOption);
+
         const response = await postProblemAnswer({
             problemId: data.problemData.problem_id,
-            option: formData.answerText.toLocaleLowerCase() || formData.answerOX || Number(formData.selectedOption),
+            option: option,
         });
         setResponseData(response);
         return response;

@@ -58,3 +58,9 @@ export type OptionListProps = {
     selectedOption: string | null;
     onSelect: (key: string) => void;
 };
+
+// Problem OX type
+export type ProblemAnswerOXProps = {
+    answerOX: boolean | null;
+    setAnswerOX: (answerOX: boolean) => void;
+};

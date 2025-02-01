@@ -1,12 +1,8 @@
 import React from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
+import { ProblemAnswerOXProps } from './type';
 
-export type ProblemAnswerOX = {
-    answerOX: boolean | null;
-    setAnswerOX: (answerOX: boolean) => void;
-};
-
-const ProblemAnswerOX = ({ answerOX, setAnswerOX }: ProblemAnswerOX) => {
+const ProblemAnswerOX = ({ answerOX, setAnswerOX }: ProblemAnswerOXProps) => {
     return (
         <View className="flex-row gap-4 justify-center items-center">
             <TouchableOpacity

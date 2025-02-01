@@ -1,10 +1,10 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { RootTabParamList } from '../../../type';
 import Home from '../../screens/Home';
 import DashBoardScreen from '../../screens/DashBoardScreen';
 import CustomTabBar from './CustomTabBar';
 import InterviewStack from './InterviewStack';
+import { RootTabParamList } from './type';
 
 const Tab = createBottomTabNavigator<RootTabParamList>();
 

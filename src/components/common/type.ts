@@ -51,3 +51,10 @@ export type ProblemAnswerTextProps = {
 export type AnswerExplanationProps = {
     responseData: PostProblemAnswerResponse | null;
 };
+
+// Option List type
+export type OptionListProps = {
+    options?: { [key: string]: string }[];
+    selectedOption: string | null;
+    onSelect: (key: string) => void;
+};

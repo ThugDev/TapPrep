@@ -6,8 +6,8 @@ import { getProblemDetail } from '../../apis/problem';
 import LoadingScreen from '../../components/common/LoadingScreen';
 import { ErrorScreen } from '../../components/common/ErrorScreen';
 import ProblemContent from '../../components/common/ProblemContent';
-import HintButton from '../../components/common/HintButton';
-import Answer from '../../components/common/Answer';
+import HintButton from '../../components/common/hint/HintButton';
+import Answer from '../../components/common/answer/Answer';
 
 const ProblemDetailScreen = () => {
     const route = useRoute<ProblemDetailScreenRouteProps>();

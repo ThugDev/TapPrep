@@ -28,6 +28,16 @@ const AnswerExplanation = ({ responseData }: AnswerExplanationProps) => {
                         <Text className="text-lg font-bold">정답 여부 : </Text>
                         <Text className="text-red-500 font-bold text-2xl">X</Text>
                     </View>
+                    <View>
+                        <View className="py-2">
+                            <Text className="text-lg font-bold">정답 해설</Text>
+                            <Text>{responseData.problemResult.explanation}</Text>
+                        </View>
+                        <View className="py-2">
+                            <Text className="text-lg font-bold">참고 사항</Text>
+                            <Text>{responseData.problemResult.reference}</Text>
+                        </View>
+                    </View>
                 </View>
             )}
         </View>

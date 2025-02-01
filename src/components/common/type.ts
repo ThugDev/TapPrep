@@ -9,10 +9,6 @@ export type ProblemContentProps = {
     description?: string;
 };
 
-export type HintButtonProps = {
-    hint?: string;
-};
-
 export type SectorViewProps = {
     setSelectedSector: (sector: string) => void;
     handleOnPress: () => void;
@@ -37,19 +33,10 @@ export type ProblemListContentProps = {
     hasNextPage: boolean;
 };
 
-export type HintViewProps = {
-    setClickHint: (clickHint: boolean) => void;
-    hint?: string;
-};
-
 // problem answer text
 export type ProblemAnswerTextProps = {
     answerText: string;
     setAnswerText: (answerText: string) => void;
-};
-
-export type AnswerExplanationProps = {
-    responseData: PostProblemAnswerResponse | null;
 };
 
 // Option List type

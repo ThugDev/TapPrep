@@ -4,7 +4,7 @@ import { UserAnswerInitializationProps } from './type';
 /**
  * @function useAnswerInitialization
  * @description
- * 풀이한 문제의 정답을 풀어와 `formData`에 초기 값을 설정하는 훅
+ * 풀이한 문제의 정답을 받아와 `formData`에 초기 값을 설정하는 훅
  * 문제 유형에 따라 `setAnswerText`, `setAnswerOX`, `handleSelectedOption`을 사용하여 값을 설정
  *
  * @param {Object} params

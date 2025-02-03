@@ -33,12 +33,10 @@ export const useAnswerInitialization = ({
     setAnswerOX,
     handleSelectedOption,
 }: UserAnswerInitializationProps) => {
-    if (!data?.isSolved) return;
-
-    const { type, answer } = data.problemData ?? {};
+    const { type, answer } = data?.problemData ?? {};
 
     useEffect(() => {
-        if (data.isSolved === true) {
+        if (data?.isSolved === true) {
             if (type === 3) {
                 setAnswerText(answer as string);
             } else if (type === 2) {

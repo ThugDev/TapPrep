@@ -18,6 +18,7 @@ export type ProblemItemProps = {
     problem: {
         problem_id: number;
         title: string;
+        isSolved: boolean;
     }[];
     handleEndReached: () => void;
     isFetchingNextPage: boolean;
@@ -26,7 +27,7 @@ export type ProblemItemProps = {
 export type ProblemListContentProps = {
     isLoading: boolean;
     isError: boolean;
-    problems: { problem_id: number; title: string }[];
+    problems: { problem_id: number; title: string; isSolved: boolean }[];
     handleEndReached: () => void;
     isFetchingNextPage: boolean;
     fetchNextPage: () => void;

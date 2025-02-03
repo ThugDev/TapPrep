@@ -1,10 +1,10 @@
 import { Text, View } from 'react-native';
 import { AnswerExplanationProps } from './type';
 
-const AnswerExplanation = ({ responseData }: AnswerExplanationProps) => {
+const AnswerExplanation = ({ isCorrect, explanation, reference }: AnswerExplanationProps) => {
     return (
         <View className="w-full">
-            {responseData?.problemResult.isCorrect === true && (
+            {isCorrect === true && (
                 <View className="w-full">
                     <View className="flex-row items-center py-2">
                         <Text className="text-lg font-bold">정답 여부 : </Text>
@@ -13,16 +13,16 @@ const AnswerExplanation = ({ responseData }: AnswerExplanationProps) => {
                     <View>
                         <View className="py-2">
                             <Text className="text-lg font-bold">정답 해설</Text>
-                            <Text>{responseData.problemResult.explanation}</Text>
+                            <Text>{explanation}</Text>
                         </View>
                         <View className="py-2">
                             <Text className="text-lg font-bold">참고 사항</Text>
-                            <Text>{responseData.problemResult.reference}</Text>
+                            <Text>{reference}</Text>
                         </View>
                     </View>
                 </View>
             )}
-            {responseData?.problemResult.isCorrect === false && (
+            {isCorrect === false && (
                 <View className="w-full">
                     <View className="flex-row items-center">
                         <Text className="text-lg font-bold">정답 여부 : </Text>
@@ -31,11 +31,11 @@ const AnswerExplanation = ({ responseData }: AnswerExplanationProps) => {
                     <View>
                         <View className="py-2">
                             <Text className="text-lg font-bold">정답 해설</Text>
-                            <Text>{responseData.problemResult.explanation}</Text>
+                            <Text>{explanation}</Text>
                         </View>
                         <View className="py-2">
                             <Text className="text-lg font-bold">참고 사항</Text>
-                            <Text>{responseData.problemResult.reference}</Text>
+                            <Text>{reference}</Text>
                         </View>
                     </View>
                 </View>

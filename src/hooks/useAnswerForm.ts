@@ -28,7 +28,7 @@ export const useAnswerForm = () => {
         selectedOption: null as string | null,
     });
 
-    const handleSelectedOpion = (key: string) => {
+    const handleSelectedOption = (key: string) => {
         setFormData((prev) => ({ ...prev, selectedOption: key }));
     };
 
@@ -40,5 +40,5 @@ export const useAnswerForm = () => {
         setFormData((prev) => ({ ...prev, answerOX: ox }));
     };
 
-    return { formData, handleSelectedOpion, setAnswerOX, setAnswerText };
+    return { formData, handleSelectedOption, setAnswerOX, setAnswerText };
 };

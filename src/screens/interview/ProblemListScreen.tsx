@@ -10,14 +10,10 @@ const ProblemListScreen = () => {
     const route = useRoute<ProblemListScreenRouteProps>();
     const { selectedSector } = route.params;
     const { selectedDifficulty, changeDifficulty } = useDifficulty();
-    const {
-        data,
-        fetchNextPage,
-        hasNextPage,
-        isFetchingNextPage,
-        isLoading,
-        isError,
-    } = useProblemList({ selectedSector, selectedDifficulty });
+    const { data, fetchNextPage, hasNextPage, isFetchingNextPage, isLoading, isError } = useProblemList({
+        selectedSector,
+        selectedDifficulty,
+    });
 
     const handleEndReached = () => {
         if (hasNextPage && !isFetchingNextPage) {
@@ -30,6 +26,7 @@ const ProblemListScreen = () => {
             page.problemList.map((item) => ({
                 problem_id: item.problem_id,
                 title: item.title,
+                isSolved: item.isSolved,
             })),
         ) || [];
 
@@ -45,9 +42,7 @@ const ProblemListScreen = () => {
                         onPress={() => changeDifficulty(difficulty.value)}
                         className={`px-4 mx-1 border rounded ${selectedDifficulty === difficulty.value ? 'bg-blue-500' : 'bg-gray-400'}`}
                     >
-                        <Text className="px-4 py-1 font-bold">
-                            {difficulty.label}
-                        </Text>
+                        <Text className="px-4 py-1 font-bold">{difficulty.label}</Text>
                     </TouchableOpacity>
                 ))}
             </View>

@@ -53,6 +53,7 @@ export type GetProblemListResponse = {
         problem_id: number;
         title: string;
         type: string;
+        isSolved: boolean;
     }[];
     nextPage: number | boolean;
 };
@@ -64,6 +65,7 @@ export type GetProblemDetail = {
 export type GetProblemDetailResponse = {
     statusCode: number;
     message: string;
+    isSolved: boolean;
     problemData: {
         problem_id: number;
         title: string;
@@ -71,6 +73,10 @@ export type GetProblemDetailResponse = {
         hint: string;
         options?: ProblemOption[];
         type: number;
+        explanation?: string;
+        reference?: string;
+        answer?: boolean | string;
+        isCorrect?: boolean;
     };
 };
 

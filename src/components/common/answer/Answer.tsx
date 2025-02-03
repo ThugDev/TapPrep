@@ -1,9 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { ActivityIndicator, Text, TouchableOpacity, View } from 'react-native';
 import { ErrorScreen } from '../ErrorScreen';
 import { InterviewAnswerProps } from '../../../screens/interview/type';
-import ProblemAnswerText from '../ProblemAnswerText';
-import ProblemAnswerOX from '../ProblemAnswerOX';
 import OptionList from '../OptionList';
 import AnswerExplanation from './AnswerExplanation';
 import { useAnswerForm } from '../../../hooks/useAnswerForm';

@@ -14,13 +14,13 @@ const ProblemItem = ({ problem, handleEndReached, isFetchingNextPage }: ProblemI
     };
 
     return (
-        <View className="w-full flex-1 pb-40 relative">
+        <View className="w-full flex-1 pb-40 relative ">
             <FlatList
                 data={problem}
                 renderItem={({ item }) => (
                     <TouchableOpacity
                         onPress={() => handleProblemDetail(item.problem_id)}
-                        className="w-full flex-row justify-center items-center py-4 my-2 border"
+                        className="w-full flex-row justify-center items-center py-4 my-2 border-b-[1px] border-gray-400"
                     >
                         <Text className="flex justify-center absolute items-center">{item.title}</Text>
                         <View className="left-36">

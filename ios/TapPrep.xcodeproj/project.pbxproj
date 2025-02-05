@@ -472,7 +472,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = KGNT5SXYQN;
+				DEVELOPMENT_TEAM = PPR9484L9K;
 				ENABLE_BITCODE = NO;
 				GITHUB_CLIENT_ID = Ov23liG9GHYAvYtWIqND;
 				INFOPLIST_FILE = TapPrep/Info.plist;
@@ -488,7 +488,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = org.reactjs.native.example.TapPrep1;
+				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = org.reactjs.native.example.TapPrep;
 				PRODUCT_NAME = TapPrep;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -503,7 +503,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = KGNT5SXYQN;
+				DEVELOPMENT_TEAM = PPR9484L9K;
 				GITHUB_CLIENT_ID = Ov23liG9GHYAvYtWIqND;
 				INFOPLIST_FILE = TapPrep/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
@@ -518,7 +518,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = org.reactjs.native.example.TapPrep1;
+				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = org.reactjs.native.example.TapPrep;
 				PRODUCT_NAME = TapPrep;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";

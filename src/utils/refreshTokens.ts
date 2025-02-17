@@ -1,6 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { postRefreshToken } from '../apis/gitLogin';
-import { useGitHubRedirectProps } from '../hooks/type';
+import { UseGitHubRedirectProps } from '../hooks/type';
 
 /**
  * @function refreshTokens
@@ -27,21 +27,21 @@ import { useGitHubRedirectProps } from '../hooks/type';
  * @returns {Promise<void>} 반환값 없음
  */
 
-export const refreshTokens = async ({ navigation }: useGitHubRedirectProps) => {
-  try {
-    const refreshToken = await AsyncStorage.getItem('refreshToken');
-    const userName = await AsyncStorage.getItem('userName');
-    if (userName && refreshToken) {
-      const response = await postRefreshToken({
-        username: userName,
-        refreshToken: refreshToken,
-      });
-      await AsyncStorage.setItem('authToken', response.accessToken);
-    } else {
-      throw new Error('리프레시 토큰이 존재하지 않습니다.');
+export const refreshTokens = async ({ navigation }: UseGitHubRedirectProps) => {
+    try {
+        const refreshToken = await AsyncStorage.getItem('refreshToken');
+        const userName = await AsyncStorage.getItem('userName');
+        if (userName && refreshToken) {
+            const response = await postRefreshToken({
+                username: userName,
+                refreshToken: refreshToken,
+            });
+            await AsyncStorage.setItem('authToken', response.accessToken);
+        } else {
+            throw new Error('리프레시 토큰이 존재하지 않습니다.');
+        }
+    } catch (error) {
+        console.error('토큰 갱신 실패', error);
+        navigation.navigate('GitLoginScreen');
     }
-  } catch (error) {
-    console.error('토큰 갱신 실패', error);
-    navigation.navigate('GitLoginScreen');
-  }
 };

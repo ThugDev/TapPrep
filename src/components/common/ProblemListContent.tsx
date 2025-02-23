@@ -17,9 +17,7 @@ const ProblemListContext = ({
     return (
         <View className="h-full">
             {isLoading && <LoadingScreen />}
-            {!isLoading && isError && (
-                <ErrorScreen errorMessage="문제 데이터가 없습니다." />
-            )}
+            {!isLoading && isError && <ErrorScreen errorMessage="문제 데이터가 없습니다." />}
             {!isLoading && !isError && (
                 <ProblemItem
                     problem={problems}
@@ -28,16 +26,11 @@ const ProblemListContext = ({
                 />
             )}
             {hasNextPage && !isFetchingNextPage && (
-                <TouchableOpacity
-                    onPress={() => fetchNextPage()}
-                    className="mt-4"
-                >
+                <TouchableOpacity onPress={() => fetchNextPage()} className="mt-4">
                     <Text className="text-blue-500 text-center">더 보기</Text>
                 </TouchableOpacity>
             )}
-            {isFetchingNextPage && (
-                <Text className="text-center">로딩 중...</Text>
-            )}
+            {isFetchingNextPage && <LoadingScreen />}
         </View>
     );
 };

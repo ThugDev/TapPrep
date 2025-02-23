@@ -25,44 +25,36 @@ import { TabData } from './type';
  */
 
 export const generateTabData = (
-  route: (typeof state.routes)[number],
-  index: number,
-  state: BottomTabBarProps['state'],
-  descriptors: BottomTabBarProps['descriptors'],
-  navigation: BottomTabBarProps['navigation'],
+    route: (typeof state.routes)[number],
+    index: number,
+    state: BottomTabBarProps['state'],
+    descriptors: BottomTabBarProps['descriptors'],
+    navigation: BottomTabBarProps['navigation'],
 ): TabData => {
-  const { options } = descriptors[route.key];
-  const isFocused = state.index === index;
+    const { options } = descriptors[route.key];
+    const isFocused = state.index === index;
 
-  const label =
-    typeof options.tabBarLabel === 'function'
-      ? String(
-          options.tabBarLabel({
-            focused: isFocused,
-            color: isFocused ? 'black' : 'gray',
-            position: 'below-icon',
-            children: route.name,
-          }),
-        )
-      : ((options.tabBarLabel as string) ?? options.title ?? route.name);
+    const onPress = () => {
+        const event = navigation.emit({
+            type: 'tabPress',
+            target: route.key,
+            canPreventDefault: true,
+        });
 
-  const onPress = () => {
-    const event = navigation.emit({
-      type: 'tabPress',
-      target: route.key,
-      canPreventDefault: true,
-    });
+        if (!isFocused && !event.defaultPrevented) {
+            navigation.navigate(route.name);
+        }
+    };
+    const iconFunction =
+        options.tabBarIcon && typeof options.tabBarIcon === 'function'
+            ? (options.tabBarIcon as () => React.ReactNode)
+            : () => null;
 
-    if (!isFocused && !event.defaultPrevented) {
-      navigation.navigate(route.name);
-    }
-  };
-
-  return {
-    key: route.key,
-    label,
-    isFocused,
-    onPress,
-    accessibilityLabel: options.tabBarAccessibilityLabel,
-  };
+    return {
+        key: route.key,
+        isFocused,
+        onPress,
+        accessibilityLabel: options.tabBarAccessibilityLabel,
+        icon: iconFunction,
+    };
 };

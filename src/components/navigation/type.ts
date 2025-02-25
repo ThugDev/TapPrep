@@ -1,19 +1,19 @@
 export type TabData = {
-  key: string;
-  label: string;
-  isFocused: boolean;
-  onPress: () => void;
-  accessibilityLabel?: string;
+    key: string;
+    isFocused: boolean;
+    onPress: () => void;
+    accessibilityLabel?: string;
+    icon: () => React.ReactNode;
 };
 
 export type RootTabParamList = {
-  Home: undefined;
-  DashBoardScreen: undefined;
-  Interview: undefined;
-  InterviewScreen: undefined;
+    Home: undefined;
+    DashBoardScreen: undefined;
+    Interview: undefined;
+    InterviewScreen: undefined;
 };
 
 export type InterviewStackParamList = {
-  ProblemListScreen: { selectedSector: string };
-  ProblemDetailScreen : {problemId: number};
-}
+    ProblemListScreen: { selectedSector: string };
+    ProblemDetailScreen: { problemId: number };
+};

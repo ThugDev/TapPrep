@@ -1,46 +1,45 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Text, TouchableOpacity, View } from 'react-native';
 
 import { UserProfileResponse } from '../../apis/type';
 import { getUserProfile } from '../../apis/user';
 import LoadingScreen from '../common/LoadingScreen';
 import { ErrorScreen } from '../common/ErrorScreen';
 import UserProfileComponent from './UserProfileComponent';
+import LevelView from './LevelView';
+import NewsView from './NewsView';
 
-const UserDashBoard = () => {
-  const {
-    data: userProfileData,
-    isError,
-    isLoading,
-  } = useQuery<UserProfileResponse>({
-    queryKey: ['userProfile'],
-    queryFn: getUserProfile,
-  });
+export type UserDashBoardProps = {
+    userProfileData?: UserProfileResponse;
+};
 
-  if (isLoading) {
-    return <LoadingScreen />;
-  }
+const UserDashBoard = ({ userProfileData }: UserDashBoardProps) => {
+    const level = {
+        img: '🐥',
+        title: '이제 막 면접 문제를 풀기 시작한 새내기',
+        rank: '탭-생',
+    };
 
-  if (isError) {
     return (
-      <ErrorScreen errorMessage="유저 데이터를 불러오는데 실패했습니다." />
-    );
-  }
-
-  return (
-    <View className="w-full p-4">
-      <View className="flex justify-between flex-row items-center rounded p-4">
-        <UserProfileComponent
-          profileImage={userProfileData?.userData.profile_image}
-          nickName={userProfileData?.userData.nickname}
-          userName={userProfileData?.userData.username}
-        />
-        <View className=" w-1/2 h-full flex justify-start items-center pt-8">
-          <Text>통계란</Text>
+        <View className="w-full h-[1/2] py-12 px-4 flex justify-center items-center">
+            <View className="w-full justify-start pl-4">
+                <Text className="text-xl font-bold">
+                    👋 어서오세요, <Text className="text-[#073955]">{userProfileData?.userData.username}</Text>님!
+                </Text>
+            </View>
+            <View className="w-full flex items-center rounded py-4">
+                <UserProfileComponent
+                    profileImage={userProfileData?.userData.profile_image}
+                    nickName={userProfileData?.userData.nickname}
+                    userName={userProfileData?.userData.username}
+                />
+            </View>
+            <View className="w-full flex items-center">
+                <LevelView level={level} nickName={userProfileData?.userData.nickname} />
+            </View>
+            <NewsView />
         </View>
-      </View>
-    </View>
-  );
+    );
 };
 export default UserDashBoard;

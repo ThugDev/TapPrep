@@ -22,7 +22,8 @@ const UserProfileComponent = ({ profileImage, nickName, userName }: UserProfileP
                         <Image source={{ uri: profileImage }} className="w-20 h-20 rounded-[50%]" />
                     </View>
                     <View className="w-1/2 pl-4 flex justify-start">
-                        <Text className="text-xs font-light">Name</Text>
+                        {/* <Text className="text-xs font-light">Name</Text> */}
+                        <Text className="text-xs font-light">NickName</Text>
                         <Text className="text-xl font-bold">{nickName}</Text>
                         <UserNameBox userName={userName} />
                     </View>

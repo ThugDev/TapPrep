@@ -25,7 +25,7 @@ const UserDashBoard = ({ userProfileData }: UserDashBoardProps) => {
         <View className="w-full h-[1/2] py-12 px-4 flex justify-center items-center">
             <View className="w-full justify-start pl-4">
                 <Text className="text-xl font-bold">
-                    👋 어서오세요, <Text className="text-[#073955]">{userProfileData?.userData.username}</Text>님!
+                    👋 어서오세요, <Text className="text-[#073955]">{userProfileData?.userData.nickname}</Text>님!
                 </Text>
             </View>
             <View className="w-full flex items-center rounded py-4">

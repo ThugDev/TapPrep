@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Image } from 'react-native';
-import { ProblemData } from '../../constants/solutionIconImages';
+import { BeProblemData, ProblemData } from '../../constants/solutionIconImages';
 import { ToggleType } from './type';
 import ToggleSwitch from './ToggleSwitch';
 
@@ -11,7 +11,7 @@ const MySolutions = () => {
         setCurrentView(value);
     };
 
-    const iconsToDisplay = currentView === 'FE' ? ProblemData : ProblemData;
+    const iconsToDisplay = currentView === 'FE' ? ProblemData : BeProblemData;
 
     return (
         <View className="pt-6 flex justify-center items-center rounded-full">

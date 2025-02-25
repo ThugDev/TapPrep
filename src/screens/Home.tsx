@@ -48,9 +48,9 @@ const Home = () => {
         <ScrollView className="py-12 h-full bg-[#f6fafd]">
             <UserDashBoard userProfileData={userProfileData} />
             <MySolutions />
-            {/* <TouchableOpacity onPress={handleLogOut}>
+            <TouchableOpacity onPress={handleLogOut}>
                 <Text>Logout</Text>
-            </TouchableOpacity> */}
+            </TouchableOpacity>
         </ScrollView>
     );
 };

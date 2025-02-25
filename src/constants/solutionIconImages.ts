@@ -45,3 +45,30 @@ export const ProblemData = [
         image: icons.NextJSIcon,
     },
 ];
+
+export const BeProblemData = [
+    {
+        name: 'NodeJS',
+        totalProblem: 15,
+        currentProblem: 5,
+        image: icons.HtmlIcon,
+    },
+    {
+        name: 'SpringBoot',
+        totalProblem: 16,
+        currentProblem: 10,
+        image: icons.CssIcon,
+    },
+    {
+        name: 'C++',
+        totalProblem: 40,
+        currentProblem: 35,
+        image: icons.ReactIcon,
+    },
+    {
+        name: 'Python',
+        totalProblem: 20,
+        currentProblem: 4,
+        image: icons.NextJSIcon,
+    },
+];

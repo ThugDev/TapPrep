@@ -6,7 +6,6 @@ export const getUserProfile = async () => {
         const response = await axiosInstance.get<UserProfileResponse>('/api/profile');
         return response.data;
     } catch (error) {
-        console.error(error);
         throw new Error('User Profile 가져오기 오류');
     }
 };

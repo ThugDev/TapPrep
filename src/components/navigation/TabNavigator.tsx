@@ -11,7 +11,11 @@ const Tab = createBottomTabNavigator<RootTabParamList>();
 
 const TabNavigator = () => {
     return (
-        <Tab.Navigator screenOptions={{ headerShown: false }} tabBar={(props) => <CustomTabBar {...props} />}>
+        <Tab.Navigator
+            initialRouteName="Home"
+            screenOptions={{ headerShown: false }}
+            tabBar={(props) => <CustomTabBar {...props} />}
+        >
             <Tab.Screen
                 name="Interview"
                 component={InterviewStack}

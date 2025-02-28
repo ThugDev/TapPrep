@@ -15,12 +15,6 @@ export type UserDashBoardProps = {
 };
 
 const UserDashBoard = ({ userProfileData }: UserDashBoardProps) => {
-    const level = {
-        img: '🐥',
-        title: '이제 막 면접 문제를 풀기 시작한 새내기',
-        rank: '탭-생',
-    };
-
     return (
         <View className="w-full h-[1/2] py-12 px-4 flex justify-center items-center">
             <View className="w-full justify-start pl-4">
@@ -36,7 +30,7 @@ const UserDashBoard = ({ userProfileData }: UserDashBoardProps) => {
                 />
             </View>
             <View className="w-full flex items-center">
-                <LevelView level={level} nickName={userProfileData?.userData.nickname} />
+                <LevelView level={userProfileData?.userData.level} nickName={userProfileData?.userData.nickname} />
             </View>
             <NewsView />
         </View>

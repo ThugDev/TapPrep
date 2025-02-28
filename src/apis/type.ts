@@ -101,3 +101,15 @@ export type PostProblemAnswerResponse = {
     };
     statusCode: number;
 };
+
+export type statType = {
+    correct: number;
+    sector_name: string;
+    total: number;
+};
+
+export type GetStatFeResponse = {
+    statusCode: number;
+    message: string;
+    stats: statType[];
+};

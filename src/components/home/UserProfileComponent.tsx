@@ -24,7 +24,7 @@ const UserProfileComponent = ({ profileImage, nickName, userName }: UserProfileP
                     <View className="w-1/2 pl-4 flex justify-start">
                         {/* <Text className="text-xs font-light">Name</Text> */}
                         <Text className="text-xs font-light">NickName</Text>
-                        <Text className="text-xl font-bold">{nickName}</Text>
+                        <Text className="text-2xl font-bold">{nickName}</Text>
                         <UserNameBox userName={userName} />
                     </View>
                 </View>

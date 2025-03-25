@@ -63,6 +63,14 @@ const IntroScreen = () => {
                     >
                         <Text className="text-xs text-white">DashBoard 보러 가기</Text>
                     </TouchableOpacity>
+                    {/* <TouchableOpacity
+                        onPress={() => {
+                            AsyncStorage.clear();
+                        }}
+                        className="w-[80%] py-3 rounded-lg gap-x-2 flex justify-center items-center flex-row cursor-pointer  bg-[#073955]"
+                    >
+                        <Text className="text-xs text-white">캐시 지우기</Text>
+                    </TouchableOpacity> */}
                 </View>
             </View>
             <View className="fixed bg-white">

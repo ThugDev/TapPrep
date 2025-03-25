@@ -10,6 +10,8 @@ const GitWebViewScreen = ({ navigation }: GitWebViewScreenProps) => {
     const gitLoginURL = `https://github.com/login/oauth/authorize?client_id=${Config.GITHUB_CLIENT_ID}&state=mobile`;
     useGitHubRedirect({ navigation });
 
+    console.log(gitLoginURL);
+
     return (
         <View className="flex-1">
             <WebView

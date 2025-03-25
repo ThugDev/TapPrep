@@ -10,6 +10,8 @@ import DashBoardButton from './DashBoardButton';
 const UserProfileComponent = ({ profileImage, nickName, userName }: UserProfileProps) => {
     const navigation = useNavigation<BottomTabNavigationProp<RootTabParamList>>();
 
+    console.log(profileImage);
+
     // const handleDashBoard = () => {
     //     navigation.navigate('DashBoardScreen');
     // };
@@ -18,8 +20,15 @@ const UserProfileComponent = ({ profileImage, nickName, userName }: UserProfileP
         <View className="bg-white w-full h-[180px] flex justify-center items-center shadow-lg rounded-md">
             <View className="w-full flex justify-center items-center ">
                 <View className="w-full flex flex-row justify-center items-center">
-                    <View className="w-1/3 flex items-center -ml-8">
-                        <Image source={{ uri: profileImage }} className="w-20 h-20 rounded-[50%]" />
+                    <View className="w-1/3 flex items-center -ml-8 rounded-[50%]">
+                        <Image
+                            source={
+                                profileImage !== 'defaultImage'
+                                    ? { uri: profileImage }
+                                    : require('../../../assets/icon/Cat_Profile.png')
+                            }
+                            className="w-20 h-20"
+                        />
                     </View>
                     <View className="w-1/2 pl-4 flex justify-start">
                         {/* <Text className="text-xs font-light">Name</Text> */}
